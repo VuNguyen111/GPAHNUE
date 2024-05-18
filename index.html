@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPA Calculating Tool</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&amp;display=swap" />
+  </noscript>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" media="print"
+    onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" />
+  </noscript>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
+  <link href="css/font-awesome/css/all.min.css?ver=1.1.0" rel="stylesheet">
+  <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
+  <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
+  <link href="css/main.css?ver=1.1.0" rel="stylesheet">
+  <noscript>
+    <style type="text/css">
+      [data-aos] {
+        transform: translate(0) scale(1) !important;
+      }
+    </style>
+  </noscript>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    something{
+      background-color: #05c46b;
+    }
+
+    form {
+      background-color: #fff;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px 20px;
+      box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-control2 {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .form-control2 label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-control2 input,
+    .form-control2 select,
+    .form-control2 textarea {
+      border: 1px solid #777;
+      border-radius: 2px;
+      font-family: inherit;
+      padding: 10px;
+      display: block;
+      width: 95%;
+    }
+
+    .form-control2 input[type="radio"],
+    .form-control2 input[type="checkbox"] {
+      display: inline-block;
+      width: auto;
+    }
+
+    button {
+      background-color: #bceefd;
+      border: 1px solid #777;
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: 21px;
+      display: block;
+      width: 100%;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .column {
+      float: left;
+      width: 50%;
+      padding: 50px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+
+    
+
+  </style>
+</head>
+
+<body id="top">
+  <header></header>
+  <div class="page-content">
+    <div class="div">
+      <div class="ww-home-page" id="home">
+        <div class="ww-wedding-announcement d-flex align-items-center justify-content-start">
+          <!-- <div class="container ww-announcement-container">
+      <p class="ww-couple-name ww-title" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000">Raymond & Susan</p><img class="img-fluid mt-1" src="images/laurel-1.png" alt="Heart" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000"/>
+      <p class="h2 mt-5 ww-title" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000" data-aos-offset="10">20<sup>th</sup> December, 2018</p>
+      </div> -->
+        </div>
+      </div>
+
+      <div class="ww-nav-bar sticky-top bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <a href="#">
+              <img src = "images/hnuelogo.jpg" class="heart" viewBox="0 0 32 29.6">
+              <img src = "images/spktlogo.jpg" class="heart" viewBox="0 0 32 29.6">
+              <img src = "images/k71alogo.jpg" class="heart" viewBox="0 0 32 29.6">
+            </a>
+            <h1 class="h2"><a class="pl-4 navbar-brand" href="#">GPA Calculating Tool </a></h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ww-navbarNav"
+              aria-controls="ww-navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-uppercase" id="ww-navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#gpaa">GPA</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#gpa2">Graduate</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#gpa3">RCM</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#gpa4">SEER</a></li>
+                <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#events">Table</a></li> -->
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#formm">Form</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="ww-section bg-light" >
+        <div class="container ww-wedding-event">
+          <!-- <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Table of live grading</h2> -->
+          <div class="row">
+            <div class="col-md-7 col-sm-12">
+              <div class="my-3">
+                <div id="gpaa">
+                  <h1>Công cụ tính GPA siêu đỉnh</h1>
+            
+                    <form class="form">
+            
+                      <div class="form-control2">
+                        <label for="ddk" id="label-ddk">
+                          Điểm điều kiện
+                        </label>
+            
+                        <input type="number" id="ddk" placeholder="Điểm điều kiện của bạn" />
+                      </div>
+            
+                      <div class="form-control2">
+                        <label for="dcc" id="label-dcc">
+                          Điểm chuyên cần
+                        </label>
+                        <input type="number" id="dcc" placeholder="Điểm chuyên cần của bạn" />
+                      </div>
+            
+                      <div class="form-control2">
+                        <label for="gpa" id="label-gpa">
+                          Bạn muốn đạt được GPA môn này là?
+                        </label>
+            
+                        <select name="gpa" id="gpa">
+                          <option value="A">A</option>
+                          <option value="B+">B+</option>
+                          <option value="B">B</option>
+                          <option value="C+">C+</option>
+                          <option value="C">C</option>
+                          <option value="D+">D+</option>
+                          <option value="D">D</option>
+                        </select>
+                      </div>
+            
+                      <div class="main-block" >
+                        <div class="btn-block" class="typewriter">
+                          <button type="button" onclick="myFunction()">Tính cho tui!</button>
+                          <p id="output1" ></p>
+                          <script>
+                            function myFunction() {
+                              var name1 = Number(document.getElementById("ddk").value);
+                              var name2 = Number(document.getElementById("dcc").value);
+                              switch (name3 = document.getElementById("gpa").value) {
+                                case name3 = "A":
+                                  name4 = 8.5;
+                                  break;
+                                case name3 = "B+":
+                                  name4 = 7.8;
+                                  break;
+                                case name3 = "B":
+                                  name4 = 7;
+                                  break;
+                                case name3 = "C+":
+                                  name4 = 6.3;
+                                  break;
+                                case name3 = "C":
+                                  name4 = 5.5;
+                                  break;
+                                case name3 = "D+":
+                                  name4 = 4.8;
+                                  break;
+                                case name3 = "D":
+                                  name4 = 4;
+                              }
+                              // var name4 = document.getElementById("name4").value;
+                              let dck = (name4 - 0.3 * name1 - 0.1 * name2) / 0.6
+                              dck = Math.round((dck + Number.EPSILON) * 100) / 100
+                              var title ='';
+                              if (name1 > 10 || name1 < 0) {
+                                title='Vui lòng nhập lại điểm điều kiện';
+                                // document.getElementById("output1").innerHTML = "Vui lòng nhập lại điểm điều kiện";
+                              } else if (name2 != 10 && name2 != 5 && name2 != 0) {
+                                title='Vui lòng nhập lại điểm chuyên cần';
+                                // document.getElementById("output1").innerHTML = "Vui lòng nhập lại điểm chuyên cần";
+                              } else {
+                                if (dck > 10) {
+                                  gpa2 = 0.3 * name1 + 0.1 * name2 + 6
+                                  gpa2 = Math.round((gpa2 + Number.EPSILON) * 100) / 100
+                                  title = `Bạn không thể đạt GPA như mong muốn. Với 10 điểm cuối kỳ, bạn sẽ được điểm trung bình môn là  ${gpa2}  :< Hãy chọn điểm GPA thấp hơn để có điểm số chính xác!`
+                                  // document.getElementById("output1").innerHTML = "Bạn không thể đạt GPA như mong muốn. Với 10 điểm cuối kỳ, bạn sẽ được điểm trung bình môn là " + gpa2 + " :< Hãy chọn điểm GPA thấp hơn để có điểm số chính xác!";
+                                } else {
+                                  title = `Điểm cuối kỳ bạn cần đạt là: ${dck} Chúc bạn thi thật tốt!`
+                                  // document.getElementById("output1").innerHTML = "Điểm cuối kỳ bạn cần đạt là: " + dck + " Chúc bạn thi thật tốt!";
+                                }
+                              }
+                              setTimeout(()=>{
+                                document.getElementById("output1").innerHTML = title;
+                              },1000)
+                            }
+                          </script>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <div class="my-3">
+                <div class="h4">Tính điểm cuối kỳ cần thiết để đạt thang điểm mong muốn</div>
+                <!-- <ul>
+                  <li><i class="text-muted fas fa-map-marker-alt "></i><span class="pl-2 text-muted">Đại Học Sư Phạm Hà Nội, Việt Nam</span></li>
+                  <li class="pt-2"><i class="text-muted far fa-calendar-alt "></i><span class="pl-2 text-muted">30 Nov 2022</span></li>
+                </ul> -->
+                <div>
+                  <hr>
+                  <div>Khung tính bên trái sẽ tính số điểm bạn cần đạt khi thi cuối kỳ với điểm chuyên cần và điểm điều kiện đã có.</div>
+                  <br>
+                  <div>Điểm chuyên cần chỉ có thể để ở 5 hoặc 10 điểm.</div>
+                  <br>                  
+                  <div>Thang điểm từ A đến D ứng với thang điểm hệ số 4 và hệ số 10 như sau:</div>
+                  <ul>
+                    <li>A - 4.0 - 8.5</li>
+                    <li>B+ - 3.5 - 7.8</li>
+                    <li>B - 3.0 - 7.0</li>
+                    <li>C+ - 2.5 - 6.3</li>
+                    <li>C - 2.0 - 5.5</li>
+                    <li>D+ - 1.5 - 4.8</li>
+                    <li>D - 1.0 - 4.0</li>
+                  </ul>
+                  <div>Với khung tính này bạn sẽ có thể lên kế hoạch và mục tiêu cụ thể cho điểm cuối kỳ của mình. Chúc các bạn thi tốt.</div>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ww-section" style="background-color: aliceblue;">
+        <div class="container ww-wedding-event" >
+          <!-- <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Table of live grading</h2> -->
+          <div class="row">
+            <div class="col-md-7 col-sm-12">
+              <div class="my-3">
+                <div id ="gpa2">
+                  <h1>Cho đến khi tốt nghiệp thì mình cần học như nào..?</h1>
+            
+                        <form class="form">
+                          <div class="form-control2">
+                            <label for="gpaf2" id="label-gpaf2">
+                              GPA
+                            </label>
+            
+                            <input type="number" id="gpaf2" placeholder="GPA của bạn" />
+                          </div>
+            
+                          <div class="form-control2">
+                            <label for="sttlf2" id="label-sttlf2">
+                              Số tín tích lũy
+                            </label>
+            
+                            <input type="number" id="sttlf2" placeholder="Số tín tích lũy của bạn" />
+                          </div>
+            
+                          <div class="form-control2">
+                            <label for="luchoc" id="label-luchoc">
+                              Bạn muốn tốt nghiệp với bằng?
+                            </label>
+            
+                            <select name="luchoc" id="luchoc">
+                              <option value=3.6>Xuất sắc</option>
+                              <option value=3.2>Giỏi</option>
+                              <option value=2.5>Khá</option>
+                            </select>
+                          </div>
+            
+                          <div class="main-block">
+                            <div class="btn-block">
+                              <button type="button" onclick="myFunction2()">Tính cho tui!</button>
+                              <p id="output2" ></p>
+                              <script>
+                                function myFunction2() {
+                                  var gpaf2 = Number(document.getElementById("gpaf2").value);
+                                  var sttlf2 = Number(document.getElementById("sttlf2").value);
+                                  var luchoc = Number(document.getElementById("luchoc").value);
+                                  // var gpadkf2 = Number(document.getElementById("gpadkf2").value);
+            
+                                  let gpammf2 = ((luchoc * 136) - gpaf2 * sttlf2) / (136-sttlf2)
+                                  gpammf2 = Math.round((gpammf2 + Number.EPSILON) * 100) / 100
+                                  var thang4;
+                                  var thang42
+                                  var phantram;
+                                  switch (gpammf2<4) {
+                                        case gpammf2 > 3.75:
+                                          phantram = (gpammf2-3.5)/0.5;
+                                          phantram = Math.round((phantram + Number.EPSILON) * 100)
+                                          thang4 = "A";
+                                          thang42 ="B+";
+                                          break;
+                                        case gpammf2 > 3.25:
+                                          phantram = (gpammf2-3)/0.5;
+                                          phantram = Math.round((phantram + Number.EPSILON) * 100)
+                                          if(phantram>100){
+                                            phantram = 200 - phantram;
+                                            thang4 = "A"
+                                            thang42 ="B+";
+                                          }
+                                          else{
+                                            thang4 = "B+";
+                                            thang42 ="B";
+                                          }
+                                          break;
+                                        case gpammf2 > 2.75:
+                                          phantram = (gpammf2-2.5)/0.5;
+                                          phantram = Math.round((phantram + Number.EPSILON) * 100)
+                                          if(phantram>100){
+                                            phantram = 200 - phantram;
+                                            thang4 = "B+"
+                                            thang42 ="B";
+                                          }
+                                          else{
+                                            thang4 = "B";
+                                            thang42 ="C+";
+                                          }
+                                          break;
+                                        case gpammf2 > 2.25:
+                                          phantram = (gpammf2-2)/0.5;
+                                          phantram = Math.round((phantram + Number.EPSILON) * 100)
+                                          if(phantram>100){
+                                            phantram = 200 - phantram;
+                                            thang4 = "B"
+                                            thang42 ="C+";
+                                          }
+                                          else{
+                                            thang4 = "C+";
+                                            thang42 ="C";
+                                          }
+                                          break;
+                                        case gpammf2 > 1.75:
+                                          phantram = (gpammf2-1.5)/0.5;
+                                          phantram = Math.round((phantram + Number.EPSILON) * 100)
+                                          if(phantram>100){
+                                            phantram = 200 - phantram;
+                                            thang4 = "C+"
+                                            thang42 ="C";
+                                          }
+                                          else{
+                                            thang4 = "C";
+                                            thang42 ="D+";
+                                          }
+                                          break;
+                                        case gpammf2 > 1.25:
+                                          phantram = (gpammf2-1)/0.5;
+                                          phantram = Math.round((phantram + Number.EPSILON) * 100)
+                                          if(phantram>100){
+                                            phantram = 200 - phantram;
+                                            thang4 = "C"
+                                            thang42 ="D+";
+                                          }
+                                          else{
+                                            thang4 = "D+";
+                                            thang42 ="D";
+                                          }
+                                          break;
+                                        case gpammf2 > 0.75:
+                                          phantram = (gpammf2-0.5)/0.5;
+                                          phantram = Math.round((phantram + Number.EPSILON) * 100)
+                                          if(phantram>100){
+                                            phantram = 200 - phantram;
+                                            thang4 = "D+"
+                                            thang42 ="D";
+                                          }
+                                          else{
+                                            thang4 = "D";
+                                          }
+                                        default:
+                                          thang4 = "F";
+                                      }
+                                  
+                                      // alert(thang4);
+                                  if (gpaf2 > 4 || gpaf2 < 0 ) {
+                                    document.getElementById("output2").innerHTML = "Vui lòng nhập lại GPA";
+                                  } else if (luchoc < gpaf2) {
+                                    document.getElementById("output2").innerHTML = "Bạn thực sự muốn giảm GPA xuống à :)))";
+                                  } else {
+                                    if (gpammf2 > 4) {
+                                      gpamm2f2 = (gpaf2 * sttlf2 + 4 * (136-sttlf2)) / (sttlf2 + (136-sttlf2))
+                                      gpamm2f2 = Math.round((gpamm2f2 + Number.EPSILON) * 100) / 100
+                                      document.getElementById("output2").innerHTML = "Bạn không thể đạt GPA như mong muốn. Với full A của " + (136-sttlf2) + " tín còn lại, bạn sẽ được GPA là " + gpamm2f2+ ".";
+                                    } else {
+                                      document.getElementById("output2").innerHTML = "Với lực học như vậy, điểm trung bình GPA bạn cần đạt được với những tin còn lại là " + gpammf2 + " . Đồng nghĩa với "+ phantram +"% các tín của bạn phải được " + thang4 + " và số lượng tín còn lại được "+ thang42+ ".";
+                                    }
+                                  }
+                                }
+                              </script>
+                            </div>
+                          </div>
+                        </form> 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <div class="my-3" >
+                <div class="h4">Tính GPA cần đạt để lấy bằng tốt nghiệp mong muốn</div>
+                <div class="h4"><br></div>
+                <!-- <ul>
+                  <li><i class="text-muted fas fa-map-marker-alt "></i><span class="pl-2 text-muted">Đại Học Sư Phạm Hà Nội, Việt Nam</span></li>
+                  <li class="pt-2"><i class="text-muted far fa-calendar-alt "></i><span class="pl-2 text-muted">30 Nov 2022</span></li>
+                </ul> -->
+                <div>
+                  <hr>
+                  <div>Khung tính bên trái sẽ ước lượng phần trăm các tín còn lại bạn phải học cho đến khi ra
+                    trường đạt số điểm sao cho phù hợp với bằng tốt nghiệp bạn muốn.
+                  </div>
+                  <br>
+                  <div>Bằng Xuất sắc sẽ có GPA tính lũy là 3.6, với Giỏi là 3.2 và với Khá là 2.5.</div>                  
+                  <div>Số tín tổng cộng để ra trường mà mình lấy làm tiêu chuẩn ở đây là 136 tín, tuy nhiên sẽ có những 
+                    khoa với số tín khác, bạn chỉ nên lấy số liệu lấy được làm tham khảo.
+                  </div>
+                  <br>
+                  <div>Với các trường hợp không đủ GPA để đạt bằng như mong muốn, hãy học cải thiện một số môn được điểm chưa cao. 
+                    Việc học cải thiện tốt sẽ khiến điểm GPA lên cao hơn là được điểm cao ở một môn mới.
+                  </div>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="ww-section" style="background-color:lightgrey;">
+        <div class="container ww-wedding-event" >
+          <!-- <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Table of live grading</h2> -->
+          <div class="row">
+            <div class="col-md-7 col-sm-12">
+              <div id ="gpa3" style="background-color:lightgrey;">
+                <div>
+                  <h1>Đăng ký tín xong rồi thì phải học như nào giờ? Khó nghĩ ghia..</h1>
+      
+                  <form class="form">
+      
+                    <div class="form-control2">
+                      <label for="gpaf3" id="label-gpaf3">
+                        GPA
+                      </label>
+      
+                      <input type="number" id="gpaf3" placeholder="GPA của bạn" />
+                    </div>
+      
+                    <div class="form-control2">
+                      <label for="sttlf3" id="label-sttlf3">
+                        Số tín tích lũy
+                      </label>
+      
+                      <input type="number" id="sttlf3" placeholder="Số tín tích lũy của bạn" />
+                    </div>
+      
+                    <div class="form-control2">
+                      <label for="stdkf3" id="label-stdkf3">
+                        Số tín đã đăng ký
+                      </label>
+      
+                      <input type="number" id="stdkf3" placeholder="Số tín bạn đã đăng ký" />
+                    </div>
+      
+                    <!-- <div class="form-control2">
+                      <label for="kyhoc" id="label-kyhoc">
+                        Bạn muốn đạt được GPA môn này là?
+                      </label>
+          
+                      <select name="kyhoc" id="kyhoc">
+                        <option value="11">Kỳ 1 Năm 1</option>
+                        <option value="12">Kỳ 2 Năm 1</option>
+                        <option value="13">Kỳ 3 Năm 1</option>
+                        <option value="21">Kỳ 1 Năm 2</option>
+                        <option value="22">Kỳ 2 Năm 2</option>
+                        <option value="23">Kỳ 3 Năm 2</option>
+                        <option value="31">Kỳ 1 Năm 3</option>
+                        <option value="32">Kỳ 2 Năm 3</option>
+                        <option value="33">Kỳ 3 Năm 3</option>
+                        <option value="40">Năm 1</option>
+                      </select>
+                    </div> -->
+      
+                    <div class="form-control2">
+                      <label for="gpadkf3" id="label-gpadkf3">
+                        GPA dự kiến
+                      </label>
+      
+                      <input type="number" id="gpadkf3" placeholder="GPA bạn dự kiến" />
+                    </div>
+      
+                    <div class="main-block">
+                      <div class="btn-block">
+                        <button type="button" onclick="myFunction3()">Tính cho tui!</button>
+                        <p id="output3"></p>
+              
+                        <script>
+                          function myFunction3() {
+                            var gpaf3 = Number(document.getElementById("gpaf3").value);
+                            var sttlf3 = Number(document.getElementById("sttlf3").value);
+                            var stdkf3 = Number(document.getElementById("stdkf3").value);
+                            var gpadkf3 = Number(document.getElementById("gpadkf3").value);
+      
+                            // switch (kyhoc = document.getElementById("kyhoc").value) {
+                            //   case kyhoc = "11":
+                            //     stdkf3 = 8.5;
+                            //     break;
+                            //   case kyhoc = "12":
+                            //     stdkf3 = 7.8;
+                            //     break;
+                            //   case kyhoc = "13":
+                            //     stdkf3 = 7;
+                            //     break;
+                            //   case kyhoc = "21":
+                            //     stdkf3 = 6.3;
+                            //     break;
+                            //   case kyhoc = "22":
+                            //     stdkf3 = 5.5;
+                            //     break;
+                            //   case kyhoc = "23":
+                            //     stdkf3 = 4.8;
+                            //     break;
+                            //   case kyhoc = "31":
+                            //     stdkf3 = 4;
+                            //     break;
+                            //   case kyhoc = "32":
+                            //     stdkf3 = 4;
+                            //     break;
+                            //   case kyhoc = "33":
+                            //     stdkf3 = 4;
+                            //     break;
+                            //   case kyhoc = "40":
+                            //     stdkf3 = 4;
+                            //     break;
+                            // }
+      
+                            let gpammf3 = ((gpadkf3 * (sttlf3 + stdkf3)) - gpaf3 * sttlf3) / stdkf3
+                            gpammf3 = Math.round((gpammf3 + Number.EPSILON) * 100) / 100
+                            var thang43;
+                            switch (gpammf3<4) {
+                                  case gpammf3 > 3.75:
+                                    thang43 = "A";
+                                    break;
+                                  case gpammf3 > 3.25:
+                                    thang43 = "B+";
+                                    break;
+                                  case gpammf3 > 2.75:
+                                    thang43 = "B";
+                                    break;
+                                  case gpammf3 > 2.25:
+                                    thang43 = "C+";
+                                    break;
+                                  case gpammf3 > 1.75:
+                                    thang43 = "C";
+                                    break;
+                                  case gpammf3 > 1.25:
+                                    thang43 = "D+";
+                                    break;
+                                  case gpammf3 > 0.75:
+                                    thang43 = "D";
+                                  default:
+                                    thang43 = "F";
+                                }
+                                // alert(thang4);
+                            if (gpaf3 > 4 || gpaf3 < 0 || gpadkf3 > 4 || gpadkf3 < 0) {
+                              document.getElementById("output3").innerHTML = "Vui lòng nhập lại GPA";
+                            } else if (gpadkf3 < gpaf3) {
+                              document.getElementById("output3").innerHTML = "Bạn thực sự muốn giảm GPA xuống à :)))";
+                            } else {
+                              if (gpammf3 > 4) {
+                                gpamm2f3 = (gpaf3 * sttlf3 + 4 * stdkf3) / (sttlf3 + stdkf3)
+                                gpamm2f3 = Math.round((gpamm2f3 + Number.EPSILON) * 100) / 100
+                                document.getElementById("output3").innerHTML = "Bạn không thể đạt GPA như mong muốn. Với full A của " + stdkf3 + " tín, bạn sẽ được GPA là " + gpamm2f3;
+                              } else {
+                                document.getElementById("output3").innerHTML = "Với số tín bạn cần đăng ký là " + stdkf3 + " bạn cần đạt điểm trung bình GPA là " + gpammf3 + " . Đồng nghĩa với hầu hết các môn của bạn phải được " + thang43 + ".";
+                              }
+                            }
+                        
+                          }
+                        </script>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+          </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <div class="my-3">
+                <div class="h4">Tính GPA dựa trên số tín đã đăng ký</div>
+                <!-- <ul>
+                  <li><i class="text-muted fas fa-map-marker-alt "></i><span class="pl-2 text-muted">Đại Học Sư Phạm Hà Nội, Việt Nam</span></li>
+                  <li class="pt-2"><i class="text-muted far fa-calendar-alt "></i><span class="pl-2 text-muted">30 Nov 2022</span></li>
+                </ul> -->
+                <div>
+                  <hr>
+                  <div>Khung tính bên trái sẽ tính trung bình GPA bạn cần đạt trong kỳ này để đạt được GPA mong muốn.
+                  </div>
+                  <br>
+                  <div>Kết quả chỉ ước lượng ở mức độ "đa số" các tín sẽ được GPA như nào, với mỗi điểm cao hơn GPA ước tính, bạn 
+                    có thể để điểm khác thấp hơn, miễn là GPA tính được ngang với GPA đã tính ở bên trái.
+                  </div>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ww-section" style="background-color:rgb(250, 220, 224);">
+        <div class="container ww-wedding-event" >
+          <!-- <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Table of live grading</h2> -->
+          <div class="row">
+            <div class="col-md-7 col-sm-12">
+              <div id ="gpa4" >
+                <div>
+                  <h1>Tính GPA nếu như...?</h1>
+      
+                  <form class="form">
+      
+                    <div class="form-control2">
+                      <label for="gpaf4" id="label-gpaf4">
+                        GPA
+                      </label>
+      
+                      <input type="number" id="gpaf4" placeholder="GPA của bạn" />
+                    </div>
+                    
+                    <div class="form-control2">
+                      <label for="sttlf4" id="label-sttlf4">
+                        Số tín tích lũy
+                      </label>
+      
+                      <input type="number" id="sttlf4" placeholder="Số tín tích lũy của bạn" />
+                    </div>
+
+                    <div class="form-control2">
+                      <label for="stdkf4" id="label-stdkf4">
+                        Môn/Các môn có số tín
+                      </label>
+      
+                      <input type="number" id="stdkf4" placeholder="Môn/Các môn có số tín là" />
+                    </div>
+      
+                    <!-- <div class="form-control2">
+                      <label for="kyhoc" id="label-kyhoc">
+                        Bạn muốn đạt được GPA môn này là?
+                      </label>
+          
+                      <select name="kyhoc" id="kyhoc">
+                        <option value="11">Kỳ 1 Năm 1</option>
+                        <option value="12">Kỳ 2 Năm 1</option>
+                        <option value="13">Kỳ 3 Năm 1</option>
+                        <option value="21">Kỳ 1 Năm 2</option>
+                        <option value="22">Kỳ 2 Năm 2</option>
+                        <option value="23">Kỳ 3 Năm 2</option>
+                        <option value="31">Kỳ 1 Năm 3</option>
+                        <option value="32">Kỳ 2 Năm 3</option>
+                        <option value="33">Kỳ 3 Năm 3</option>
+                        <option value="40">Năm 1</option>
+                      </select>
+                    </div> -->
+      
+                    <div class="form-control2">
+                      <label for="gpadkf4" id="label-gpadkf4">
+                        Bạn đạt được GPA môn/các môn này là?
+                      </label>
+          
+                      <select name="gpadkf4" id="gpadkf4">
+                        <option value="A">A</option>
+                        <option value="B+">B+</option>
+                        <option value="B">B</option>
+                        <option value="C+">C+</option>
+                        <option value="C">C</option>
+                        <option value="D+">D+</option>
+                        <option value="D">D</option>
+                      </select>
+                    </div>
+      
+                    <div class="main-block">
+                      <div class="btn-block">
+                        <button type="button" onclick="myFunction4()">Tính cho tui!</button>
+                        <p id="output4"></p>
+              
+                        <script>
+                          function myFunction4() {
+                            var gpaf4 = Number(document.getElementById("gpaf4").value);
+                            var sttlf4 = Number(document.getElementById("sttlf4").value);
+                            var stdkf4 = Number(document.getElementById("stdkf4").value);
+                            switch (abc = document.getElementById("gpadkf4").value) {
+                                case abc = "A":
+                                  gpaa = 4;
+                                  break;
+                                case abc = "B+":
+                                  gpaa = 3.5;
+                                  break;
+                                case abc = "B":
+                                  gpaa = 3;
+                                  break;
+                                case abc = "C+":
+                                  gpaa = 2.5;
+                                  break;
+                                case abc = "C":
+                                  gpaa = 2;
+                                  break;
+                                case abc = "D+":
+                                  gpaa = 1.5;
+                                  break;
+                                case abc = "D":
+                                  gpaa = 1;
+                              }
+
+                            let gpamf4 = ((gpaf4*sttlf4) + (stdkf4*gpaa))/(stdkf4+sttlf4)
+                            gpamf4 = Math.round((gpamf4 + Number.EPSILON) * 100) / 100
+
+                            if (gpaf4 > 4 || gpaf4 < 0) {
+                              document.getElementById("output4").innerHTML = "Vui lòng nhập lại GPA";
+                            } else if (sttlf4 < 0 || stdkf4 < 0) {
+                              document.getElementById("output4").innerHTML = "Vui lòng nhập lại số tín";
+                            } else {
+                              document.getElementById("output4").innerHTML = "Với số tín của môn/các môn là " + stdkf4 + " và điểm các tín là " + abc + ". Bạn sẽ được GPA là " + gpamf4 + ".";
+                            }
+                        
+                          }
+                        </script>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+          </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <div class="my-3">
+                <div class="h4">Tính GPA nếu mà mới có điểm môn mới</div>
+                <!-- <ul>
+                  <li><i class="text-muted fas fa-map-marker-alt "></i><span class="pl-2 text-muted">Đại Học Sư Phạm Hà Nội, Việt Nam</span></li>
+                  <li class="pt-2"><i class="text-muted far fa-calendar-alt "></i><span class="pl-2 text-muted">30 Nov 2022</span></li>
+                </ul> -->
+                <div>
+                  <hr>
+                  <div>Bạn mới thi xong và bạn không biết là nếu môn này mà được D thì sẽ kéo GPA xuống bao nhiêu thì đây chính là chỗ để tính cho bạn!
+                  </div>
+                  <div>Ngược lại thì nếu bạn vừa ra khỏi phòng thi và bạn làm bài rất tốt ý, thế mà không biết nếu được A thì GPA sẽ lên đến mức nào thì chỉ cần nhập ở ngay bên trái kia thôi.</div>
+                  <br>
+                  <div>Dù biết là đằng nào cũng sẽ biết, nhưng mà nếu biết trước một xíu thì tốt hơn đúng khônggg?
+                  </div>
+                  <div>Khung tính này cũng tính được cả những giả định bạn có nếu mà bất cứ thời điểm nào bạn có những suy nghĩ lo lắng về GPA của mình.</div>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="ww-section bg-light" id="events">
+        <div class="container ww-wedding-event">
+          <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Table of live grading</h2>
+        <div class="row"></div>
+          <div class="row">
+            <div class="col-md-7 col-sm-12">
+              <div class="my-3">
+                <div class="h4">Khoa Sư Phạm Kỹ thuật</div>
+                <ul>
+                  <li><i class="text-muted fas fa-map-marker-alt "></i><span class="pl-2 text-muted">Đại Học Sư Phạm Hà Nội, Việt Nam</span></li>
+                  <li class="pt-2"><i class="text-muted far fa-calendar-alt "></i><span class="pl-2 text-muted">30 Nov 2022</span></li>
+                </ul>
+                <div>
+                  <div id='divTest'></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <div class="my-3"><img class="img-fluid" src="images\banner.png" alt="Reception" data-aos="fade-up-right" data-aos-duration="1000"/></div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div id= 'formm'>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJVjmzagV62SnBjwmsdAdx9uwX_nbQNn4REq5p-bCzUgKzeA/viewform?embedded=true" width="640" height="641" frameborder="0" marginheight="0" marginwidth="0">Đang tải…</iframe>
+      </div> 
+
+      <div class="ww-footer bg-light">
+        <div class="container text-center py-4">
+          <p class="my-0">&copy; SV - <a class="credit" href="https://www.facebook.com/khoasuphamkythuat" target="_blank">Khoa SPKT.</a></p>
+          <p class="mb-0">Disclaimer: Trang web xây dựng không vì mục đích thương mại.</a>
+          <!-- <p class="mb-0">Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a> -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <div id='divTest'></div>
+  </div>
+
+
+  <footer></footer>
+  <script src="scripts/jquery.min.js?ver=1.1.0"></script>
+  <script src="scripts/bootstrap.bundle.min.js?ver=1.1.0"></script>
+  <script src="scripts/aos.js?ver=1.1.0"></script>
+  <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/script.js" type="text/javascript"></script>
+</body>
+
+</html>
