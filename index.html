@@ -314,6 +314,14 @@
             
                             <input type="number" id="sttlf2" placeholder="Số tín tích lũy của bạn" />
                           </div>
+
+                          <div class="form-control2">
+                            <label for="stcl2" id="label-stcl2">
+                              Số tín còn lại
+                            </label>
+            
+                            <input type="number" id="stcl2" placeholder="Số tín tích lũy của bạn" />
+                          </div>
             
                           <div class="form-control2">
                             <label for="luchoc" id="label-luchoc">
@@ -336,9 +344,15 @@
                                   var gpaf2 = Number(document.getElementById("gpaf2").value);
                                   var sttlf2 = Number(document.getElementById("sttlf2").value);
                                   var luchoc = Number(document.getElementById("luchoc").value);
-                                  // var gpadkf2 = Number(document.getElementById("gpadkf2").value);
+                                  var stcl2 = Number(document.getElementById("stcl2").value);
+                                  if(stcl2 !=0){
+                                    stcl2 = stcl2;
+                                  }
+                                  else{
+                                    stcl2 = 136-sttlf2;
+                                  }
             
-                                  let gpammf2 = ((luchoc * 136) - gpaf2 * sttlf2) / (136-sttlf2)
+                                  let gpammf2 = ((luchoc * (stcl2 + sttlf2)) - gpaf2 * sttlf2) / (stcl2)
                                   gpammf2 = Math.round((gpammf2 + Number.EPSILON) * 100) / 100
                                   var thang4;
                                   var thang42
@@ -354,7 +368,7 @@
                                           phantram = (gpammf2-3)/0.5;
                                           phantram = Math.round((phantram + Number.EPSILON) * 100)
                                           if(phantram>100){
-                                            phantram = 200 - phantram;
+                                            phantram = phantram - 100;
                                             thang4 = "A"
                                             thang42 ="B+";
                                           }
@@ -367,7 +381,7 @@
                                           phantram = (gpammf2-2.5)/0.5;
                                           phantram = Math.round((phantram + Number.EPSILON) * 100)
                                           if(phantram>100){
-                                            phantram = 200 - phantram;
+                                            phantram = phantram - 100;
                                             thang4 = "B+"
                                             thang42 ="B";
                                           }
@@ -380,7 +394,7 @@
                                           phantram = (gpammf2-2)/0.5;
                                           phantram = Math.round((phantram + Number.EPSILON) * 100)
                                           if(phantram>100){
-                                            phantram = 200 - phantram;
+                                            phantram = phantram - 100;
                                             thang4 = "B"
                                             thang42 ="C+";
                                           }
@@ -393,7 +407,7 @@
                                           phantram = (gpammf2-1.5)/0.5;
                                           phantram = Math.round((phantram + Number.EPSILON) * 100)
                                           if(phantram>100){
-                                            phantram = 200 - phantram;
+                                            phantram = phantram - 100;
                                             thang4 = "C+"
                                             thang42 ="C";
                                           }
@@ -406,7 +420,7 @@
                                           phantram = (gpammf2-1)/0.5;
                                           phantram = Math.round((phantram + Number.EPSILON) * 100)
                                           if(phantram>100){
-                                            phantram = 200 - phantram;
+                                            phantram = phantram - 100;
                                             thang4 = "C"
                                             thang42 ="D+";
                                           }
@@ -419,7 +433,7 @@
                                           phantram = (gpammf2-0.5)/0.5;
                                           phantram = Math.round((phantram + Number.EPSILON) * 100)
                                           if(phantram>100){
-                                            phantram = 200 - phantram;
+                                            phantram = phantram - 100;
                                             thang4 = "D+"
                                             thang42 ="D";
                                           }
@@ -434,12 +448,12 @@
                                   if (gpaf2 > 4 || gpaf2 < 0 ) {
                                     document.getElementById("output2").innerHTML = "Vui lòng nhập lại GPA";
                                   } else if (luchoc < gpaf2) {
-                                    document.getElementById("output2").innerHTML = "Bạn thực sự muốn giảm GPA xuống à :)))";
+                                    document.getElementById("output2").innerHTML = "Nếu giữ vững lực học hiện tại, bạn có thể tốt nghiệp với bằng mong muốn. Tuy nhiên để tính toán giới hạn dưới thì điểm trung bình GPA bạn cần đạt được với những tin còn lại là " + gpammf2 + " . Đồng nghĩa với "+ phantram +"% các tín của bạn phải được " + thang4 + " và số lượng tín còn lại được "+ thang42+ ".";
                                   } else {
                                     if (gpammf2 > 4) {
-                                      gpamm2f2 = (gpaf2 * sttlf2 + 4 * (136-sttlf2)) / (sttlf2 + (136-sttlf2))
+                                      gpamm2f2 = (gpaf2 * sttlf2 + 4 * (stcl2)) / (sttlf2 + (stcl2))
                                       gpamm2f2 = Math.round((gpamm2f2 + Number.EPSILON) * 100) / 100
-                                      document.getElementById("output2").innerHTML = "Bạn không thể đạt GPA như mong muốn. Với full A của " + (136-sttlf2) + " tín còn lại, bạn sẽ được GPA là " + gpamm2f2+ ".";
+                                      document.getElementById("output2").innerHTML = "Bạn không thể đạt GPA như mong muốn. Với full A của " + stcl2 + " tín còn lại, bạn sẽ được GPA là " + gpamm2f2+ ".";
                                     } else {
                                       document.getElementById("output2").innerHTML = "Với lực học như vậy, điểm trung bình GPA bạn cần đạt được với những tin còn lại là " + gpammf2 + " . Đồng nghĩa với "+ phantram +"% các tín của bạn phải được " + thang4 + " và số lượng tín còn lại được "+ thang42+ ".";
                                     }
@@ -467,8 +481,7 @@
                   </div>
                   <br>
                   <div>Bằng Xuất sắc sẽ có GPA tính lũy là 3.6, với Giỏi là 3.2 và với Khá là 2.5.</div>                  
-                  <div>Số tín tổng cộng để ra trường mà mình lấy làm tiêu chuẩn ở đây là 136 tín, tuy nhiên sẽ có những 
-                    khoa với số tín khác, bạn chỉ nên lấy số liệu lấy được làm tham khảo.
+                  <div>Nếu bạn để trống phần số tín còn lại thì hệ thống sẽ tính số tín tổng cộng để ra trường theo tiêu chuẩn là 136 tín.
                   </div>
                   <br>
                   <div>Với các trường hợp không đủ GPA để đạt bằng như mong muốn, hãy học cải thiện một số môn được điểm chưa cao. 
@@ -591,43 +604,135 @@
       
                             let gpammf3 = ((gpadkf3 * (sttlf3 + stdkf3)) - gpaf3 * sttlf3) / stdkf3
                             gpammf3 = Math.round((gpammf3 + Number.EPSILON) * 100) / 100
-                            var thang43;
-                            switch (gpammf3<4) {
-                                  case gpammf3 > 3.75:
-                                    thang43 = "A";
-                                    break;
-                                  case gpammf3 > 3.25:
-                                    thang43 = "B+";
-                                    break;
-                                  case gpammf3 > 2.75:
-                                    thang43 = "B";
-                                    break;
-                                  case gpammf3 > 2.25:
-                                    thang43 = "C+";
-                                    break;
-                                  case gpammf3 > 1.75:
-                                    thang43 = "C";
-                                    break;
-                                  case gpammf3 > 1.25:
-                                    thang43 = "D+";
-                                    break;
-                                  case gpammf3 > 0.75:
-                                    thang43 = "D";
-                                  default:
-                                    thang43 = "F";
-                                }
+                            var thang431;
+                            var thang432;
+                            var phantram3;
+
+                            var phantram;
+                                  switch (gpammf3<4) {
+                                        case gpammf3 > 3.75:
+                                          phantram3 = (gpammf3-3.5)/0.5;
+                                          phantram3 = Math.round((phantram3 + Number.EPSILON) * 100)
+                                          thang431 = "A";
+                                          thang432 ="B+";
+                                          break;
+                                        case gpammf3 > 3.25:
+                                          phantram3 = (gpammf3-3)/0.5;
+                                          phantram3 = Math.round((phantram3 + Number.EPSILON) * 100)
+                                          if(phantram3>100){
+                                            phantram3 = phantram3 - 100;
+                                            thang431 = "A"
+                                            thang432 ="B+";
+                                          }
+                                          else{
+                                            thang431 = "B+";
+                                            thang432 ="B";
+                                          }
+                                          break;
+                                        case gpammf3 > 2.75:
+                                          phantram3 = (gpammf3-2.5)/0.5;
+                                          phantram3 = Math.round((phantram3 + Number.EPSILON) * 100)
+                                          if(phantram3>100){
+                                            phantram3 = phantram3 - 100;
+                                            thang431 = "B+"
+                                            thang432 ="B";
+                                          }
+                                          else{
+                                            thang431 = "B";
+                                            thang432 ="C+";
+                                          }
+                                          break;
+                                        case gpammf3 > 2.25:
+                                          phantram3 = (gpammf3-2)/0.5;
+                                          phantram3 = Math.round((phantram3 + Number.EPSILON) * 100)
+                                          if(phantram3>100){
+                                            phantram3 = phantram3 - 100;
+                                            thang431 = "B"
+                                            thang432 ="C+";
+                                          }
+                                          else{
+                                            thang431 = "C+";
+                                            thang432 ="C";
+                                          }
+                                          break;
+                                        case gpammf3 > 1.75:
+                                          phantram3 = (gpammf3-1.5)/0.5;
+                                          phantram3 = Math.round((phantram3 + Number.EPSILON) * 100)
+                                          if(phantram3>100){
+                                            phantram3 = phantram3 - 100;
+                                            thang431 = "C+"
+                                            thang432 ="C";
+                                          }
+                                          else{
+                                            thang431 = "C";
+                                            thang432 ="D+";
+                                          }
+                                          break;
+                                        case gpammf3 > 1.25:
+                                          phantram3 = (gpammf3-1)/0.5;
+                                          phantram3 = Math.round((phantram3 + Number.EPSILON) * 100)
+                                          if(phantram3>100){
+                                            phantram3 = phantram3 - 100;
+                                            thang431 = "C"
+                                            thang432 ="D+";
+                                          }
+                                          else{
+                                            thang431 = "D+";
+                                            thang432 ="D";
+                                          }
+                                          break;
+                                        case gpammf3 > 0.75:
+                                          phantram3 = (gpammf3-0.5)/0.5;
+                                          phantram3 = Math.round((phantram3 + Number.EPSILON) * 100)
+                                          if(phantram3>100){
+                                            phantram3 = phantram3 - 100;
+                                            thang431 = "D+"
+                                            thang432 ="D";
+                                          }
+                                          else{
+                                            thang431 = "D";
+                                          }
+                                        default:
+                                          thang431 = "F";
+                                      }
+
+
+                            // switch (gpammf3<4) {
+                            //       case gpammf3 > 3.75:
+                            //         thang43 = "A";
+                            //         break;
+                            //       case gpammf3 > 3.25:
+                            //         thang43 = "B+";
+                            //         break;
+                            //       case gpammf3 > 2.75:
+                            //         thang43 = "B";
+                            //         break;
+                            //       case gpammf3 > 2.25:
+                            //         thang43 = "C+";
+                            //         break;
+                            //       case gpammf3 > 1.75:
+                            //         thang43 = "C";
+                            //         break;
+                            //       case gpammf3 > 1.25:
+                            //         thang43 = "D+";
+                            //         break;
+                            //       case gpammf3 > 0.75:
+                            //         thang43 = "D";
+                            //       default:
+                            //         thang43 = "F";
+                            //     }
                                 // alert(thang4);
                             if (gpaf3 > 4 || gpaf3 < 0 || gpadkf3 > 4 || gpadkf3 < 0) {
                               document.getElementById("output3").innerHTML = "Vui lòng nhập lại GPA";
                             } else if (gpadkf3 < gpaf3) {
-                              document.getElementById("output3").innerHTML = "Bạn thực sự muốn giảm GPA xuống à :)))";
+                              document.getElementById("output3").innerHTML = "Hệ thống không khuyến khích bạn tính toán để giảm GPA xuống. Tuy nhiên, Với số tín bạn cần đăng ký là " + stdkf3 + " , bạn cần đạt điểm trung bình GPA là " + gpammf3 + " . Đồng nghĩa với "+ phantram3 +"% các tín của bạn phải được " + thang431 + " và số lượng tín còn lại được "+ thang432+ ".";
                             } else {
                               if (gpammf3 > 4) {
                                 gpamm2f3 = (gpaf3 * sttlf3 + 4 * stdkf3) / (sttlf3 + stdkf3)
                                 gpamm2f3 = Math.round((gpamm2f3 + Number.EPSILON) * 100) / 100
                                 document.getElementById("output3").innerHTML = "Bạn không thể đạt GPA như mong muốn. Với full A của " + stdkf3 + " tín, bạn sẽ được GPA là " + gpamm2f3;
                               } else {
-                                document.getElementById("output3").innerHTML = "Với số tín bạn cần đăng ký là " + stdkf3 + " bạn cần đạt điểm trung bình GPA là " + gpammf3 + " . Đồng nghĩa với hầu hết các môn của bạn phải được " + thang43 + ".";
+                                document.getElementById("output3").innerHTML = "Với số tín bạn cần đăng ký là " + stdkf3 + " , bạn cần đạt điểm trung bình GPA là " + gpammf3 + " . Đồng nghĩa với "+ phantram3 +"% các tín của bạn phải được " + thang431 + " và số lượng tín còn lại được "+ thang432+ ".";
                               }
                             }
                         
@@ -651,7 +756,7 @@
                   <div>Khung tính bên trái sẽ tính trung bình GPA bạn cần đạt trong kỳ này để đạt được GPA mong muốn.
                   </div>
                   <br>
-                  <div>Kết quả chỉ ước lượng ở mức độ "đa số" các tín sẽ được GPA như nào, với mỗi điểm cao hơn GPA ước tính, bạn 
+                  <div>Kết quả chỉ ước lượng phần trăm các tín sẽ được GPA như nào, với mỗi điểm cao hơn GPA ước tính, bạn 
                     có thể để điểm khác thấp hơn, miễn là GPA tính được ngang với GPA đã tính ở bên trái.
                   </div>
                   <hr>
